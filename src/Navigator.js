@@ -1,8 +1,24 @@
 import React from "react"
-
+import { Link,Route,Routes } from "react-router-dom"
+import App from "./App"
+import App2 from "./App2"
+import { Nav, Navbar, Container } from "react-bootstrap"
 
 export default Navigator = () => {
     return(
-        <p>This is nav</p>
+        <>
+            <div className="navigationStyle">
+                <h1>
+                    <Link to="/" className="link">Scientific Calculator</Link>
+                </h1>
+                <h1>
+                    <Link to="/Normal" className="link">Normal Calculator</Link>
+                </h1>
+            </div>
+            <Routes>
+                <Route path = "/" element = {<App/>}/>
+                <Route exact path = "/Normal" element = {<App2/>}/>
+            </Routes>
+        </>
     )
 }
