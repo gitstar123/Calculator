@@ -1,0 +1,74 @@
+import './App.css';
+import Input from './components/Input';
+import Button from './components/Button';
+import { useState } from 'react'; 
+import * as math from 'mathjs';
+
+function App() {
+
+  const append = (pressed) => {
+    setCurrentString((currentString) => {
+      return (currentString + pressed);
+    });
+  }
+
+  const [currentString, setCurrentString] = useState("");
+  const [answer, setAnswer] = useState("");
+
+  const clearText = () => {
+    setCurrentString("");
+    setAnswer("");
+  }
+
+  const clearLast = () => {
+    if(!currentString.length == 0){
+      setCurrentString(currentString.substring(0,currentString.length - 1));
+    }
+  }
+
+  const findResult = () => {
+    setAnswer(math.evaluate(currentString));
+    setCurrentString("");
+  }
+
+
+  return (
+    <div className="App">
+      <div className='InputBox'>
+        <Input text = {currentString} result = {answer}/>
+      </div>
+      <div className='row'>
+        <Button title = 'C' color = '#C5C6D0' currentStringColor = '#ffffff' handleClick={clearText}/>
+        <Button title = '(' color = '#C5C6D0' currentStringColor = '#ffffff' handleClick={append}/>
+        <Button title = ')' color = '#C5C6D0' currentStringColor = '#ffffff' handleClick={append}/>
+        <Button title = '/' color = '#C5C6D0' currentStringColor = '#ffffff' handleClick={append}/>
+      </div>
+      <div className='row'>
+        <Button title = '7' color = '#C5C6D0' currentStringColor = '#ffffff' handleClick={append}/>
+        <Button title = '8' color = '#C5C6D0' currentStringColor = '#ffffff' handleClick={append}/>
+        <Button title = '9' color = '#C5C6D0' currentStringColor = '#ffffff' handleClick={append}/>
+        <Button title = '*' color = '#C5C6D0' currentStringColor = '#ffffff' handleClick={append}/>
+      </div>
+      <div className='row'>
+        <Button title = '4' color = '#C5C6D0' currentStringColor = '#ffffff' handleClick={append}/>
+        <Button title = '5' color = '#C5C6D0' currentStringColor = '#ffffff' handleClick={append}/>
+        <Button title = '6' color = '#C5C6D0' currentStringColor = '#ffffff' handleClick={append}/>
+        <Button title = '-' color = '#C5C6D0' currentStringColor = '#ffffff' handleClick={append}/>
+      </div>
+      <div className='row'>
+        <Button title = '1' color = '#C5C6D0' currentStringColor = '#ffffff' handleClick={append}/>
+        <Button title = '2' color = '#C5C6D0' currentStringColor = '#ffffff' handleClick={append}/>
+        <Button title = '3' color = '#C5C6D0' currentStringColor = '#ffffff' handleClick={append}/>
+        <Button title = '+' color = '#C5C6D0' currentStringColor = '#ffffff' handleClick={append}/>
+      </div>
+      <div className='row'>
+        <Button title = '0' color = '#C5C6D0' currentStringColor = '#ffffff' handleClick={append}/>
+        <Button title = '.' color = '#C5C6D0' currentStringColor = '#ffffff' handleClick={append}/>
+        <Button title = '=' color = '#000000' currentStringColor = '#ffffff' handleClick={findResult}/>
+        <Button title = 'del' color = '#C5C6D0' currentStringColor = '#ffffff' handleClick={clearLast}/>
+      </div>
+    </div>
+  );
+}
+
+export default App;
