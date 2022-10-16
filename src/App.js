@@ -4,6 +4,7 @@ import Button from './components/Button';
 import { useState } from 'react'; 
 import * as math from 'mathjs';
 
+let history = [];
 function App() {
 
   const append = (pressed) => {
@@ -14,6 +15,8 @@ function App() {
 
   const [currentString, setCurrentString] = useState("");
   const [answer, setAnswer] = useState("");
+
+  // const [history, setHistory] = useState([]);
 
   const clearText = () => {
     setCurrentString("");
@@ -27,7 +30,19 @@ function App() {
   }
 
   const findResult = () => {
-    setAnswer(math.evaluate(currentString));
+    const b = math.evaluate(currentString);
+    setAnswer(b);
+
+    if(history.length == 10){
+      history.shift();
+      history.push(b);
+    }
+    else{
+      history.push(b);
+    }
+
+    console.log(history);
+
     setCurrentString("");
   }
 
@@ -64,8 +79,16 @@ function App() {
       <div className='row'>
         <Button title = '0' color = '#C5C6D0' currentStringColor = '#ffffff' handleClick={append}/>
         <Button title = '.' color = '#C5C6D0' currentStringColor = '#ffffff' handleClick={append}/>
-        <Button title = '=' color = '#000000' currentStringColor = '#ffffff' handleClick={findResult}/>
+        <input type='button' value = '= Button' onClick = {() => findResult()}></input>
         <Button title = 'del' color = '#C5C6D0' currentStringColor = '#ffffff' handleClick={clearLast}/>
+      </div>
+      <div>
+        <p>Last 10 Transactions</p>
+        {history.map((num) => {
+          return <li key = {num}>
+            {num}
+          </li>
+        })}
       </div>
     </div>
   );
