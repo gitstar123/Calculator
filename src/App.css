@@ -45,14 +45,14 @@
   font-size: 20px;
 }
 
-.navigationStyle{
+.navigationStyle>nav{
   display: flex;
   flex: 1;
   justify-content: center;
   align-items: center;
 }
 
-.navigationStyle>h1{
+.navigationStyle>nav>h1{
   margin: 1% 2%;
   padding: 1%;
   background-color: #C5C6D0;

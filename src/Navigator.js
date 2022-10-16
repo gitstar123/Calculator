@@ -8,12 +8,14 @@ export default Navigator = () => {
     return(
         <>
             <div className="navigationStyle">
-                <h1>
-                    <Link to="/" className="link">Scientific Calculator</Link>
-                </h1>
-                <h1>
-                    <Link to="/Normal" className="link">Normal Calculator</Link>
-                </h1>
+                <nav>
+                    <h1>
+                        <Link to="/" className="link">Scientific Calculator</Link>
+                    </h1>
+                    <h1>
+                        <Link to="/Normal" className="link">Normal Calculator</Link>
+                    </h1>
+                </nav>
             </div>
             <Routes>
                 <Route path = "/" element = {<App/>}/>
