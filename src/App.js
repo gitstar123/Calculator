@@ -46,7 +46,6 @@ function App() {
     setCurrentString("");
   }
 
-
   return (
     <div className="App">
       <div className='InputBox'>
@@ -56,30 +55,43 @@ function App() {
         <Button title = 'C' color = '#C5C6D0' currentStringColor = '#ffffff' handleClick={clearText}/>
         <Button title = '(' color = '#C5C6D0' currentStringColor = '#ffffff' handleClick={append}/>
         <Button title = ')' color = '#C5C6D0' currentStringColor = '#ffffff' handleClick={append}/>
+        <Button title = ',' color = '#C5C6D0' currentStringColor = '#ffffff' handleClick={append}/>
+        <Button title = '%' color = '#C5C6D0' currentStringColor = '#ffffff' handleClick={append}/>
         <Button title = '/' color = '#C5C6D0' currentStringColor = '#ffffff' handleClick={append}/>
       </div>
       <div className='row'>
+        <Button title = 'sqrt(' color = '#C5C6D0' currentStringColor = '#ffffff' handleClick={append}/>
+        <Button title = 'pow(' color = '#C5C6D0' currentStringColor = '#ffffff' handleClick={append}/>
+        <Button title = 'asin(' color = '#C5C6D0' currentStringColor = '#ffffff' handleClick={append}/>
         <Button title = '7' color = '#C5C6D0' currentStringColor = '#ffffff' handleClick={append}/>
         <Button title = '8' color = '#C5C6D0' currentStringColor = '#ffffff' handleClick={append}/>
         <Button title = '9' color = '#C5C6D0' currentStringColor = '#ffffff' handleClick={append}/>
         <Button title = '*' color = '#C5C6D0' currentStringColor = '#ffffff' handleClick={append}/>
+        
       </div>
       <div className='row'>
+        <Button title = 'tan(' color = '#C5C6D0' currentStringColor = '#ffffff' handleClick={append}/>
+        <Button title = 'log(' color = '#C5C6D0' currentStringColor = '#ffffff' handleClick={append}/>
+        <Button title = 'atan(' color = '#C5C6D0' currentStringColor = '#ffffff' handleClick={append}/>
         <Button title = '4' color = '#C5C6D0' currentStringColor = '#ffffff' handleClick={append}/>
         <Button title = '5' color = '#C5C6D0' currentStringColor = '#ffffff' handleClick={append}/>
         <Button title = '6' color = '#C5C6D0' currentStringColor = '#ffffff' handleClick={append}/>
         <Button title = '-' color = '#C5C6D0' currentStringColor = '#ffffff' handleClick={append}/>
+        
       </div>
       <div className='row'>
+        <Button title = 'sin(' color = '#C5C6D0' currentStringColor = '#ffffff' handleClick={append}/>
+        <Button title = 'cos(' color = '#C5C6D0' currentStringColor = '#ffffff' handleClick={append}/>
+        <Button title = 'acos(' color = '#C5C6D0' currentStringColor = '#ffffff' handleClick={append}/>
         <Button title = '1' color = '#C5C6D0' currentStringColor = '#ffffff' handleClick={append}/>
         <Button title = '2' color = '#C5C6D0' currentStringColor = '#ffffff' handleClick={append}/>
         <Button title = '3' color = '#C5C6D0' currentStringColor = '#ffffff' handleClick={append}/>
         <Button title = '+' color = '#C5C6D0' currentStringColor = '#ffffff' handleClick={append}/>
       </div>
       <div className='row'>
-        <Button title = '0' color = '#C5C6D0' currentStringColor = '#ffffff' handleClick={append}/>
         <Button title = '.' color = '#C5C6D0' currentStringColor = '#ffffff' handleClick={append}/>
-        <input type='button' value = '= Button' onClick = {() => findResult()}></input>
+        <Button title = '0' color = '#C5C6D0' currentStringColor = '#ffffff' handleClick={append}/>
+        <Button title = '=' color = '#000' currentStringColor = '#ffffff' handleClick={findResult}/>
         <Button title = 'del' color = '#C5C6D0' currentStringColor = '#ffffff' handleClick={clearLast}/>
       </div>
       <div>
